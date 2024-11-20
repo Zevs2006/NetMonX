@@ -1,0 +1,27 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetMonX.MainPage"
+             Title="NetMonX">
+    <VerticalStackLayout Padding="10">
+        <Button Text="Сканировать сеть" Clicked="OnScanNetworkClicked" />
+        <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" IsVisible="False" />
+        <CollectionView x:Name="DevicesList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="{Binding IPAddress}" />
+                        <Label Grid.Column="1" Text="{Binding MACAddress}" />
+                        <Label Grid.Column="2" Text="{Binding HostName}" />
+                        <Label Grid.Column="3" Text="{Binding ResponseTime}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
